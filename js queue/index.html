@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Engine Demo</title>
+    <style>
+		td {
+			border: 1px solid #999;
+			padding: 0.1em 1em;
+        }
+        
+	</style>
+    
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body background="image.jpg">
+
+    <form>
+        <fieldset>
+            <legend><strong>What field do you want to ask about?</strong></legend>
+            <div>
+                <button type="button" id="tag1">Question Tag1</button>
+            </div>
+            <div>
+                <button type="button" id="tag2">Question Tag2</button>
+            </div>
+            <div>
+                <button type="button" id="tag3">Question Tag3</button>
+            </div>
+        </fieldset>
+    </form>
+    <p>
+    <table>
+        <tr>
+            <td><em>Question Tag</em></td>
+            <td>Customer in queue   </td>
+            <td>Available agent</td>
+        </tr>
+        <tr>
+            <td>Tag 1</td>
+            <td id="customerQueue1">0</td>
+            <td id="agentQueue1">3</td>
+        </tr>
+        <tr>
+            <td>Tag 2</td>
+            <td id="customerQueue2">0</td>
+            <td id="agentQueue2">5</td>
+        </tr>
+        <tr>
+            <td>Tag 3</td>
+            <td id="customerQueue3">0</td>
+            <td id="agentQueue3">2</td>
+        </tr>
+    </table>
+    </p>
+
+    <p>
+        <table>
+            <tr>
+                <td>Current date:</td>
+                <td id="date">00:00:00</td>
+            </tr>
+        </table>
+        </p>
+    
+    <p>
+        <fieldset>
+            <legend><strong>Current serving pairs</strong></legend>
+            <div id="pairs">
+                No agent is serving any customer now.
+            </div>
+        </fieldset>
+    </p>
+
+    
+    
+    <!-- <form action="someplace.php">
+		<fieldset>
+			<legend>What field do you want to ask about?</legend>
+			<div>
+				<label for="lt20">Question Tag 1</label>
+				<input type="radio" id="tag1">
+			</div>
+			<div>
+				<label for="20to39">Question Tag 2</label>
+				<input type="radio" id="tag2">
+			</div>
+			<div>
+				<label for="40to59">Question Tag 3</label>
+				<input type="radio" id="tag3">
+			</div>
+		</fieldset>
+    </form> -->
+</body>
+</html>
+<script src="queue.js"></script>
