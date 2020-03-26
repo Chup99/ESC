@@ -1,0 +1,42 @@
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.jumbotron {
+    padding: 1rem 1rem;
+}
+/* .jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+} */
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* h2 {
+    margin-bottom: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+} */
+
+.btn-group, .btn-group-vertical {
+    position: relative;
+    display: -ms-inline-flexbox;
+    display: block;
+    /* margin-bottom: 20px; */
+    /* align-content: space-between; */
+}
+
+/* .btn-success{
+    line-break: auto;
+    width: 200px !important;
+    font-size: 50px !important;
+    font-weight: 700 !important;
+    font-family: cursive !important;
+} */
