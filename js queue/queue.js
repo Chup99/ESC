@@ -69,7 +69,7 @@ function applyChange(){
         tdCustomerQueue1.textContent--;
         tdAgentQueue1.textContent--;
         var d = new Date();
-        serviceList.push([0, d, customerQueue[0].front()]);
+        serviceList.push(["Network", d, customerQueue[0].front()]);
         customerQueue[0].dequeue();
         agentQueue[0].dequeue();
         
@@ -78,7 +78,7 @@ function applyChange(){
         tdCustomerQueue2.textContent--;
         tdAgentQueue2.textContent--
         var d = new Date();
-        serviceList.push([1, d, customerQueue[1].front()]);
+        serviceList.push(["Hardware", d, customerQueue[1].front()]);
         customerQueue[1].dequeue();
         agentQueue[1].dequeue();
     }
@@ -86,7 +86,7 @@ function applyChange(){
         tdCustomerQueue3.textContent--;
         tdAgentQueue3.textContent--;
         var d = new Date();
-        serviceList.push([2, d, customerQueue[2].front()]);
+        serviceList.push(["Display", d, customerQueue[2].front()]);
         customerQueue[2].dequeue();
         agentQueue[2].dequeue();
     }
@@ -94,16 +94,18 @@ function applyChange(){
     if (serviceList.length>0){
         if (endDate-serviceList[0][1]>3000){
             var tag = serviceList[0][0];
-            agentQueue[tag].enqueue("id");
             switch (tag){
-                case 0:
+                case "Network":
                     tdAgentQueue1.textContent++;
+                    agentQueue[0].enqueue("id");
                     break;
-                case 1:
+                case "Hardware":
                     tdAgentQueue2.textContent++;
+                    agentQueue[1].enqueue("id");
                     break;
-                case 2:
+                case "Display":
                     tdAgentQueue3.textContent++;
+                    agentQueue[2].enqueue("id");
                     break;
                 default:
             }
@@ -136,7 +138,6 @@ function randomID(){
 
 
 // MAIN FUNCTION
-
 
 
 // number of tags

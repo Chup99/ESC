@@ -9,7 +9,30 @@
 			border: 1px solid #999;
 			padding: 0.1em 1em;
         }
-        
+        .button {
+            box-shadow:inset 0px 1px 0px 0px #cf866c;
+            background:linear-gradient(to bottom, #d14222 5%, #a6331f 100%);
+            background-color:#d14222;
+            border-radius:3px;
+            border:1px solid #912c17;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:13px;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #1f110b;
+        }
+        .button:hover {
+            background:linear-gradient(to bottom, #a6331f 5%, #d14222 100%);
+            background-color:#a6331f;
+        }
+        .button:active {
+            position:relative;
+            top:1px;
+        }
+
 	</style>
     
     <!-- <link rel="stylesheet" href="style.css"> -->
@@ -20,13 +43,15 @@
         <fieldset>
             <legend><strong>What field do you want to ask about?</strong></legend>
             <div>
-                <button type="button" id="tag1">Question Tag1</button>
+                <button type="button" id="tag1" class="button">Network</button>
             </div>
+            <br>
             <div>
-                <button type="button" id="tag2">Question Tag2</button>
+                <button type="button" id="tag2" class="button">Hardware</button>
             </div>
+            <br>
             <div>
-                <button type="button" id="tag3">Question Tag3</button>
+                <button type="button" id="tag3" class="button">Display</button>
             </div>
         </fieldset>
     </form>
@@ -34,21 +59,21 @@
     <table>
         <tr>
             <td><em>Question Tag</em></td>
-            <td>Customer in queue   </td>
+            <td>Customer in queue</td>
             <td>Available agent</td>
         </tr>
         <tr>
-            <td>Tag 1</td>
+            <td>Network</td>
             <td id="customerQueue1">0</td>
             <td id="agentQueue1">3</td>
         </tr>
         <tr>
-            <td>Tag 2</td>
+            <td>Hardware</td>
             <td id="customerQueue2">0</td>
             <td id="agentQueue2">5</td>
         </tr>
         <tr>
-            <td>Tag 3</td>
+            <td>Display</td>
             <td id="customerQueue3">0</td>
             <td id="agentQueue3">2</td>
         </tr>
@@ -58,7 +83,7 @@
     <p>
         <table>
             <tr>
-                <td>Current date:</td>
+                <td><em>Current date:</em></td>
                 <td id="date">00:00:00</td>
             </tr>
         </table>
