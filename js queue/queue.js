@@ -125,6 +125,16 @@ function printPairs(){
     return str;
 }
 
+// random customer ID generator
+function randomID(){
+    return Math.floor(Math.random() * (randomMax - randomMin) ) + randomMin;
+}
+
+
+
+
+
+
 // MAIN FUNCTION
 
 
@@ -132,6 +142,11 @@ function printPairs(){
 // number of tags
 const tags = 3; 
 
+// random ID generator range
+const randomMax = 999999999;
+const randomMin = 100000000;
+
+// initiate customerQueue and agentQueue
 var customerQueue = [];
 var agentQueue = [];
 for (var i = 0; i < tags; i++){
@@ -144,7 +159,7 @@ for (var i = 0; i < tags; i++){
 // the current pairs that are serving
 var serviceList = [];
 
-//number of available agents for each tag;
+// set number of available agents for each tag;
 const agentTag1 = 3;
 const agentTag2 = 5;
 const agentTag3 = 2;
@@ -173,15 +188,15 @@ var tdAgentQueue3 = document.getElementById('agentQueue3');
 var customerID = 0;
 //set event listener
 buttonTag1.addEventListener('click', function(event){
-    customerQueue[0].enqueue(customerID++);
+    customerQueue[0].enqueue(randomID());
     tdCustomerQueue1.textContent++;
 });
 buttonTag2.addEventListener('click', function(event){
-    customerQueue[1].enqueue(customerID++);
+    customerQueue[1].enqueue(randomID());
     tdCustomerQueue2.textContent++;
 });
 buttonTag3.addEventListener('click', function(event){
-    customerQueue[2].enqueue(customerID++);
+    customerQueue[2].enqueue(randomID());
     tdCustomerQueue3.textContent++;
 });
 
