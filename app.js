@@ -108,7 +108,7 @@ app.post('/help', (req, res) =>{
     var skill= data.skill;
     //var password = data.pwd;
     console.log(`User: ${name} Skill: ${skill}`);
-    if (name!= ''){
+    if (name!='' && skill !=undefined){
         // res.status(200).send("Name entered!");
         
         // res.redirect(`/agent?id=${usrname}`);
@@ -127,7 +127,7 @@ app.post('/help', (req, res) =>{
         });
     }
     else{
-        res.status(200).send("Hoi enter ur name lah!")
+        res.status(200).send("Hoi press skill lah!")
         res.end();
     }
 

@@ -19,6 +19,7 @@ $(document).ready(function(){
     });
     $('#nextBtn').click(function(){
         var name = $('#name').val();
+        console.log(`this name: ${name}`)
         $.ajax({
             url: '/help',
             type: 'POST',
@@ -27,8 +28,17 @@ $(document).ready(function(){
                 skill: skill
             },
             success: function(data, status, els){
-                console.log(data.cred);
-                window.location.href = "/chat";
+                console.log(`skill: ${skill}`);
+                console.log (`name: ${name}`);
+                if (skill!=undefined){
+                    console.log(data.cred);
+                    window.location.href = "/chat";
+                }
+                else{
+                    console.log("click skill pls")
+
+                }
+                
             },
             error: function(error){
                 if (error.status == 500){
