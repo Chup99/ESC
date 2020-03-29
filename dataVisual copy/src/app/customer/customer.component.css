@@ -1,0 +1,12 @@
+.icon {
+    width: 25px;
+    height: 25px;
+    /* float: left; */
+    background-color: gray;
+}
+
+.list {
+    float: left;
+    margin-left: 15px;
+    margin-right: 15px;
+}

@@ -1,0 +1,21 @@
+<button (click)='onClickAdd()'>Add User</button>
+<input type="text" (keyup.enter)="OnInput($event)">
+<button (click)='onClickDelete()'>Delete User</button>
+<br>
+
+
+
+<div class='list' *ngFor='let name of names; index as i'>
+    <h4>{{i}} {{name}}</h4>
+    
+    <div class="icon"></div>
+    <form [formGroup]='customerForm'>
+        <mat-checkbox formControlName='question1' labelPosition='before' class='form-control'>Question 1</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName='question2' labelPosition='before' class='form-control'>Question 2</mat-checkbox>
+        <br>
+        <mat-checkbox formControlName='question3' labelPosition='before' class='form-control'>Question 3</mat-checkbox>
+        <br>
+        <button type='submit' (click)='onSubmit()'>ask agent</button>
+    </form>
+</div>
