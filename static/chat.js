@@ -1,4 +1,3 @@
-initialize();
 const msgerForm = document.getElementById("inputArea");
 const msgerInput = document.getElementById("input");
 const msgerChat = document.getElementById("chat");
