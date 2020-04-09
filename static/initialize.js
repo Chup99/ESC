@@ -34,8 +34,9 @@ function initialize(){
     document.addEventListener(rainbowSDK.RAINBOW_ONREADY, onReady)
 
     /* Listen to the SDK event RAINBOW_ONLOADED */
-    document.addEventListener(rainbowSDK.RAINBOW_ONLOADED, onLoaded)
-
+    document.addEventListener(rainbowSDK.RAINBOW_ONLOADED, onLoaded);
     /* Load the SDK */
     rainbowSDK.load();
+    
+    
 }

@@ -1,3 +1,5 @@
+//import rainbowSDK from "./rainbow-sdk.min.js";
+
 $(document).ready(function(){
     initialize();
     var skill;
@@ -32,7 +34,10 @@ $(document).ready(function(){
                 console.log (`name: ${name}`);
                 if (skill!=undefined){
                     console.log(data.cred);
-                    window.location.href = "/chat";
+                    var contact=rainbowSDK.contacts.getAll();
+                    console.log ("Contacts below!\n");
+                    console.log(contact);
+                    //window.location.href = "/chat";
                 }
                 else{
                     console.log("click skill pls")
