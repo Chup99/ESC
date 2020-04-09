@@ -1,9 +1,15 @@
+// import { getRainbowSDK } from "./initialize.js";
+
+import { getRainbowSDK } from "./initialize.js";
 const msgerForm = document.getElementById("inputArea");
 const msgerInput = document.getElementById("input");
 const msgerChat = document.getElementById("chat");
 console.log("things are loaded");
 
 // Icons made by Freepik from www.flaticon.com
+
+let rainbowSDK = getRainbowSDK;
+console.log(rainbowSDK);
 
 const BOT_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
