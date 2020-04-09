@@ -1,25 +1,27 @@
 $(document).ready(function(){
     initialize();
     var skill;
-    $('#networkBtn').click(function(){
-        skill="Network";
-        console.log("Network button clicked!")
-    })
-    $('#displayBtn').click(function(){
-        skill="Display";
-        console.log("Display button clicked!")
-    })
-    $('#hardwareBtn').click(function(){
-        skill="Hardware";
-        console.log("Hardware button clicked!")
+
+    var myInterval = setInterval(() => {
+        console.log(new Date());
+    }, 10000);
+
+    // ANCHOR click the button and do log for now
+    $('.btn-secondary').click(function () {
+        var buttonId = $(this).attr('id');
+        skill = buttonId;
+        console.log(buttonId + " button clicked!");
     })
 
     $('form').submit(function(e){
         e.preventDefault();
     });
+
+    // ANCHOR the submit button (innerHTML='NEXT')
     $('#nextBtn').click(function(){
         var name = $('#name').val();
         console.log(`this name: ${name}`)
+
         $.ajax({
             url: '/help',
             type: 'POST',
@@ -35,10 +37,9 @@ $(document).ready(function(){
                     window.location.href = "/chat";
                 }
                 else{
-                    console.log("click skill pls")
-
+                    // ANCHOR undefined skill / never click 
+                    console.log("click skill pls");
                 }
-                
             },
             error: function(error){
                 if (error.status == 500){

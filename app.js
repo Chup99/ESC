@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-
+// database 
+const createNewGuest = require('./mysql/createNewGuest');
 
 // Load the SDK
 let RBnode = require("rainbow-node-sdk");
@@ -87,12 +88,12 @@ app.get('/query', (req, res) =>{
     }
 })
 
-app.get('/book/:id', (req, res) =>{
-    var ID = req.params.id;
-    console.log(`Book ID is: ${ID}`);
-    res.send("I got it thank you!");
-    res.end();
-})
+// app.get('/book/:id', (req, res) =>{
+//     var ID = req.params.id;
+//     console.log(`Book ID is: ${ID}`);
+//     res.send("I got it thank you!");
+//     res.end();
+// })
 
 app.get('/agent', (req, res) =>{
     var agent = req.query;
@@ -107,18 +108,28 @@ app.post('/help', (req, res) =>{
     var name = data.name;
     var skill= data.skill;
     //var password = data.pwd;
+
+    // ANCHOR in the node console
     console.log(`User: ${name} Skill: ${skill}`);
+
     if (name!='' && skill !=undefined){
         // res.status(200).send("Name entered!");
         
         // res.redirect(`/agent?id=${usrname}`);
         // res.redirect(`/agent/${usrname}/${password}`);
-        rbNode.admin.createAnonymousGuestUser().then(cred=>{
-            console.log(cred);
-            console.log(cred.id);
-            let contacts = rbNode.contacts.getAll();
-            console.log(contacts);
-            res.status(200).send({cred: cred});
+
+        // TODO how to make sure different guest user is created
+        let ttl = 3600;  // active for one hour
+        rbNode.admin.createAnonymousGuestUser(ttl).then(guest=>{
+            // console.log(cred);
+
+            // ANCHOR guest user get different login email
+            console.log(name + "<===>" + guest.loginEmail + "<====>" + skill + "#########################");
+            // console.log("########### -----> reach here");
+            createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
+            // let contacts = rbNode.contacts.getAll();
+            // console.log(contacts);
+            res.status(200).send({guest: guest});
             res.end();
         }).catch(err=>{
             console.error(err);
@@ -127,15 +138,13 @@ app.post('/help', (req, res) =>{
         });
     }
     else{
-        res.status(200).send("Hoi press skill lah!")
+        console.log("invalid skill");
+        res.status(200).send("Hoi press skill lah!");
         res.end();
     }
 
 
 })
 
-// app.get('/', (req, res) => {
-
-// });
-
+// port number
 app.listen(8000);
