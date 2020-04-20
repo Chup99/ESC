@@ -1,7 +1,8 @@
-/* 
-    create a new entry in sql
-
-*/
+/**
+ * create a new entry in sql (new user in our database)
+ * NOTE got nothing to do with the rainbow guset account
+ * May dont need to use database --> the queue is possible to do in node cache (array lists with in node)
+ *  */ 
 
 // establish connection
 var mysql = require('mysql');

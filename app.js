@@ -124,7 +124,8 @@ app.post('/help', (req, res) =>{
             // console.log(cred);
 
             // ANCHOR guest user get different login email
-            console.log(name + "<===>" + guest.loginEmail + "<====>" + skill + "#########################");
+            // TODO create a json with this and pass to queue to use
+            console.log("[Name] : " + name + " [Email] : " + guest.loginEmail + " [Skill] : " + skill);
             // console.log("########### -----> reach here");
             createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
             // let contacts = rbNode.contacts.getAll();
