@@ -3,6 +3,9 @@ const bodyParser = require("body-parser");
 const app = express();
 // database 
 const createNewGuest = require('./mysql/createNewGuest');
+// add array (global)
+// NOTE restart the server this array is going to be flushed
+var queueArray = new Array();
 
 // Load the SDK
 let RBnode = require("rainbow-node-sdk");
@@ -126,8 +129,14 @@ app.post('/help', (req, res) =>{
             // ANCHOR guest user get different login email
             // TODO create a json with this and pass to queue to use
             console.log("[Name] : " + name + " [Email] : " + guest.loginEmail + " [Skill] : " + skill);
-            // console.log("########### -----> reach here");
-            createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
+            queueArray.push({
+                "name": name,
+                "email": guest.loginEmail,
+                "skill": skill
+            });
+            // ################## NOTE enable to save information to sql #######################
+            // createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
+            // #################################################################################
             // let contacts = rbNode.contacts.getAll();
             // console.log(contacts);
             res.status(200).send({guest: guest});
@@ -145,6 +154,12 @@ app.post('/help', (req, res) =>{
     }
 
 
+})
+
+app.get('/queue', (req, res) =>{
+    console.log(queueArray);
+    res.send(queueArray);
+    res.end;
 })
 
 // port number
