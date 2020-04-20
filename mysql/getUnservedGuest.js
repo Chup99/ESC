@@ -10,7 +10,7 @@ var con = mysql.createConnection({
 
 var array;
 
-// TODO get the queue
+// TODO get the queue (Not necessary when we use the cached queue)
 function getQueue() {
 
     // let queue;

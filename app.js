@@ -6,6 +6,7 @@ const createNewGuest = require('./mysql/createNewGuest');
 // add array (global)
 // NOTE restart the server this array is going to be flushed
 var queueArray = new Array();
+var currentQueue = new Array();
 
 // Load the SDK
 let RBnode = require("rainbow-node-sdk");
@@ -98,6 +99,7 @@ app.get('/query', (req, res) =>{
 //     res.end();
 // })
 
+// TODO get the agent to pop the queue
 app.get('/agent', (req, res) =>{
     var agent = req.query;
     var agentID = agent.id;
@@ -121,19 +123,26 @@ app.post('/help', (req, res) =>{
         // res.redirect(`/agent?id=${usrname}`);
         // res.redirect(`/agent/${usrname}/${password}`);
 
-        // TODO how to make sure different guest user is created
         let ttl = 3600;  // active for one hour
         rbNode.admin.createAnonymousGuestUser(ttl).then(guest=>{
             // console.log(cred);
 
             // ANCHOR guest user get different login email
-            // TODO create a json with this and pass to queue to use
             console.log("[Name] : " + name + " [Email] : " + guest.loginEmail + " [Skill] : " + skill);
+            // initialize "servedBy": "NOBODY"
             queueArray.push({
                 "name": name,
                 "email": guest.loginEmail,
-                "skill": skill
+                "skill": skill,
+                "servedBy": "NOBODY",
             });
+            // initialize "priority": 0
+            currentQueue.push({
+                // "name": name,
+                // "email": guest.loginEmail,
+                "skill": skill,
+                "priority": 0,
+            })
             // ################## NOTE enable to save information to sql #######################
             // createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
             // #################################################################################
@@ -155,8 +164,14 @@ app.post('/help', (req, res) =>{
 
 
 })
-
+// queue cache
 app.get('/queue', (req, res) =>{
+    console.log(queueArray);
+    res.send(queueArray);
+    res.end;
+})
+// current queue cache
+app.get('/currentQueue', (req, res) =>{
     console.log(queueArray);
     res.send(queueArray);
     res.end;
