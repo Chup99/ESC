@@ -69,7 +69,7 @@ app.get('/', function(req, res){
 app.get('/chat', function(req, res){
     console.log("hi");
     res.sendFile(__dirname + "/views/chat.html");
-    // res.end();
+    res.end();
 });
 
 app.get('/hello', (req, res) => {
@@ -130,6 +130,7 @@ app.post('/help', (req, res) =>{
             // ANCHOR guest user get different login email
             console.log("[Name] : " + name + " [Email] : " + guest.loginEmail + " [Skill] : " + skill);
             // initialize "servedBy": "NOBODY"
+            // NOTE queue
             queueArray.push({
                 "name": name,
                 "email": guest.loginEmail,

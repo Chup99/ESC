@@ -1,5 +1,5 @@
+initialize();
 $(document).ready(function(){
-    initialize();
     var skill;
 
     // NOTE timer in the console
@@ -41,13 +41,13 @@ $(document).ready(function(){
                 console.log (`name: ${name}`);
                 if (skill!=undefined){
                     // NOTE i disable the window to direct to the chat
-                    // window.location.href = "/chat";
-
+                    
                     // TODO INSERT the chat here --chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat
-                    $ulSelectedSkills.append("<li>name: " + name + ", skills: " + skill + "</li>");  // chat example (remove this ul-select-skills)
+                    $ulSelectedSkills.append("<li>name: {{name}} skills: {{skill}}</li>");  // chat example (remove this ul-select-skills)
                     // FIXME serve the chat as separate componet in div id chat-container
                     $chatContainer.append("../views/chat.html");
                     // --chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat
+                    window.location.href = "/chat";
                 } else{
                     // ANCHOR alert to interrupt page --> before user submit without click skill buttons
                     // console.log("click skill pls");
