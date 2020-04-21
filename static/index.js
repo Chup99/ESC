@@ -43,9 +43,9 @@ $(document).ready(function(){
                     // NOTE i disable the window to direct to the chat
                     
                     // TODO INSERT the chat here --chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat
-                    $ulSelectedSkills.append("<li>name: {{name}} skills: {{skill}}</li>");  // chat example (remove this ul-select-skills)
+                    // $ulSelectedSkills.append("<li>name: {{name}} skills: {{skill}}</li>");  // chat example (remove this ul-select-skills)
                     // FIXME serve the chat as separate componet in div id chat-container
-                    $chatContainer.append("../views/chat.html");
+                    // $chatContainer.append("../views/chat.html");
                     // --chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat--chat
                     window.location.href = "/chat";
                 } else{

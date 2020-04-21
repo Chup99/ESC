@@ -1,6 +1,7 @@
 // import { getRainbowSDK } from "./initialize.js";
 
 // import { getRainbowSDK } from "./initialize.js";
+// import { queueArray } from "../app"
 const msgerForm = document.getElementById("inputArea");
 const msgerInput = document.getElementById("input");
 const msgerChat = document.getElementById("chat");
@@ -21,6 +22,7 @@ var CONVO = rainbow.conversations.openConversationForContact(AGENT_ACC);
 console.log("Agent connected");
 
 msgerForm.addEventListener("submit", event => {
+
   event.preventDefault();
 
   const msgText = msgerInput.value;
@@ -31,6 +33,11 @@ msgerForm.addEventListener("submit", event => {
   appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
   msgerInput.value = "";
 });
+
+// funtion popq() {
+//   queueArray.pop();
+//   console.log("button clicked");
+// };
 
 let onNewMessageReceived = function (event) {
   let message = event.detail.message;

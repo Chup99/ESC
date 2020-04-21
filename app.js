@@ -145,7 +145,7 @@ app.post('/help', (req, res) =>{
                 "priority": 0,
             })
             // ################## NOTE enable to save information to sql #######################
-            // createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
+            createNewGuest.createGuestUserInSQL(name, guest.loginEmail, skill);
             // #################################################################################
             // let contacts = rbNode.contacts.getAll();
             // console.log(contacts);
